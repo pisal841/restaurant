@@ -110,7 +110,7 @@ if(!isset($_SESSION['username'])){
     <a href="menu/view_menu.php"><i class="fa-solid fa-utensils"></i> Menu</a>
     <a href="tables/view_tables.php"><i class="fa-solid fa-chair"></i> Tables</a>
     <a href="orders/order_list.php"><i class="fa-solid fa-receipt"></i> Orders</a>
-    <a href="users/user_list.php"><i class="fa-solid fa-users"></i> Users</a>
+    <a href="includes/report.php"><i class="fa-solid fa-users"></i> Report</a>
     <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
 </div>
 
@@ -130,14 +130,14 @@ if(!isset($_SESSION['username'])){
             ?>
         </div>
 
-        <div class="card tables">
+        <a href="tables/add_table.php" class="card tables">
             <i class="fa-solid fa-chair"></i>
             <h3>Total Tables</h3>
             <?php
             $table_count = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tables"));
             echo "<p>$table_count tables</p>";
             ?>
-        </div>
+        </a>
 
         <div class="card orders">
             <i class="fa-solid fa-receipt"></i>
@@ -156,13 +156,6 @@ if(!isset($_SESSION['username'])){
             echo "<p>$user_count users</p>";
             ?>
         </div>
-        
-<div class="card report">
-    <i class="fa-solid fa-chart-line"></i>
-    <h3>Reports</h3>
-    <p>View Sales Report</p>
-</div>
-
     </div>
 </div>
 
